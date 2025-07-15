@@ -1,0 +1,294 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AutoExorcist Boosting Service</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Creepster&display=swap" rel="stylesheet">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background-color: #0a0a0a;
+      color: #e0f7ff;
+      margin: 0;
+      overflow-x: hidden;
+    }
+
+    h2 {
+      font-family: 'Creepster', cursive;
+      font-size: 2em;
+      color: #00f0ff;
+      margin-bottom: 0.5em;
+    }
+
+    nav {
+      background: #0c0c0c;
+      padding: 0.75em 1em;
+      position: fixed;
+      top: 0;
+      left: 0;
+      right: 0;
+      z-index: 10;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    nav .menu-toggle {
+      font-size: 1.5em;
+      color: #00f0ff;
+      background: none;
+      border: none;
+      display: none;
+    }
+
+    nav ul {
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      display: flex;
+      gap: 1em;
+    }
+
+    nav ul li a {
+      color: #00f0ff;
+      font-weight: bold;
+      text-decoration: none;
+    }
+
+    .mobile-nav {
+      display: none;
+      flex-direction: column;
+      background: #0c0c0c;
+      width: 100%;
+    }
+
+    .mobile-nav.active {
+      display: flex;
+    }
+
+    header.hero {
+      padding: 6em 1em 4em;
+      text-align: center;
+      background: radial-gradient(circle at center, #0d0d0d, #000);
+    }
+
+    .hero h1 {
+      font-size: 2.5em;
+      color: #00f0ff;
+    }
+
+    .cta {
+      display: inline-block;
+      margin-top: 1em;
+      padding: 0.75em 1.5em;
+      background: #00f0ff;
+      color: #000;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: bold;
+    }
+
+    section {
+      padding: 3em 1em;
+      max-width: 960px;
+      margin: auto;
+    }
+
+    .card-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1em;
+    }
+
+    .card {
+      background: #111;
+      color: #e0f7ff;
+      border: 2px solid #00f0ff;
+      border-radius: 10px;
+      padding: 1em 1.5em;
+      box-shadow: 0 0 12px #00f0ff33;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+      cursor: pointer;
+    }
+
+    .card:hover {
+      transform: scale(1.03);
+      box-shadow: 0 0 18px #00f0ffaa;
+    }
+
+    .note {
+      text-align: center;
+      font-style: italic;
+      margin-top: 1em;
+    }
+
+    .buy {
+      background: #00f0ff;
+      color: #000;
+      font-weight: bold;
+      padding: 0.5em 1em;
+      border-radius: 6px;
+      text-decoration: none;
+      display: inline-block;
+      margin: 0.5em 0;
+    }
+
+    details summary {
+      cursor: pointer;
+      font-weight: bold;
+      color: #00f0ff;
+    }
+
+    footer {
+      text-align: center;
+      padding: 1em;
+      font-size: 0.85em;
+      background-color: #0c0c0c;
+      color: #888;
+    }
+
+    .fog {
+      background: url('assets/fog.png') repeat-x;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 300%;
+      height: 100%;
+      opacity: 0.04;
+      animation: fog 60s linear infinite;
+      z-index: 0;
+    }
+
+    .ghost {
+      position: fixed;
+      width: 100px;
+      height: 100px;
+      background: url('assets/ghost.png') no-repeat center center / contain;
+      opacity: 0.08;
+      animation: floatGhost 20s ease-in-out infinite;
+      z-index: 0;
+    }
+
+    .ghost-left {
+      top: 20%;
+      left: 5%;
+    }
+
+    .ghost-right {
+      bottom: 15%;
+      right: 5%;
+      animation-delay: 10s;
+    }
+
+    @keyframes fog {
+      from { transform: translateX(0); }
+      to { transform: translateX(-66%); }
+    }
+
+    @keyframes floatGhost {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-20px); }
+    }
+
+    @media (max-width: 768px) {
+      nav ul {
+        display: none;
+      }
+      nav .menu-toggle {
+        display: block;
+      }
+      nav .mobile-nav {
+        display: none;
+      }
+      nav .mobile-nav.active {
+        display: flex;
+      }
+    }
+  </style>
+</head>
+<body>
+<div class="fog"></div>
+<div class="ghost ghost-left"></div>
+<div class="ghost ghost-right"></div>
+
+<nav>
+  <strong style="color:#00f0ff;">☠</strong>
+  <button class="menu-toggle" onclick="document.querySelector('.mobile-nav').classList.toggle('active')">☰</button>
+  <ul class="mobile-nav">
+    <li><a href="#bundles">Bundles</a></li>
+    <li><a href="#proof">Proof</a></li>
+    <li><a href="#faq">FAQ</a></li>
+    <li><a href="#how">How to Buy</a></li>
+    <li><a href="#socials">Socials</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <h1>AutoExorcist Boosting Service</h1>
+  <p>Unlock more. Grind less. Trusted by real players.</p>
+  <a href="https://discord.gg/9CBPym4yvQ" class="cta">Join Our Discord</a>
+</header>
+
+<section id="bundles" class="pricing">
+  <h2>👻 Boosting Bundles</h2>
+  <div class="card-container">
+    <div class="card bundle">50 Levels – $5.49</div>
+    <div class="card bundle">100 Levels – $9.99</div>
+    <div class="card bundle">165 Levels – $13.99</div>
+    <div class="card bundle">250 Levels – $18.99</div>
+    <div class="card bundle">350 Levels – $24.99</div>
+    <div class="card bundle">500 Levels – $29.99</div>
+    <div class="card bundle">700 Levels – $39.99</div>
+    <div class="card bundle">1000 Levels – $69.98</div>
+  </div>
+  <p class="note">💬 Avg. delivery time: 1–2 hours</p>
+</section>
+
+<section class="upsells">
+  <h2>🧩 Optional Add-Ons</h2>
+  <div class="card-container">
+    <div class="card">🔮 Card Focus (+$3)</div>
+    <div class="card">⚙️ Custom Orders (+$6.99 per extra 100 levels)</div>
+  </div>
+</section>
+
+<section id="proof" class="proof">
+  <h2>📸 Proof & Reviews</h2>
+  <p>Reviews and proof of service can be viewed publicly on <a href="https://gameflip.com/profile/us-east-1:32db29b0-e100-4906-9520-b53531f0aeaf" target="_blank">Gameflip</a> and in our <a href="https://discord.gg/9CBPym4yvQ" target="_blank">Discord server</a>.</p>
+</section>
+
+<section id="how" class="how-to-buy">
+  <h2>🛒 How to Buy</h2>
+  <ol>
+    <li>Choose where to buy:</li>
+    <ul>
+      <li><a class="buy" href="https://gameflip.com/profile/us-east-1:32db29b0-e100-4906-9520-b53531f0aeaf" target="_blank">Buy on Gameflip</a></li>
+      <li><a class="buy" href="https://www.paypal.me/AutoExorcist?locale.x=en_GB" target="_blank">Pay with PayPal</a></li>
+    </ul>
+    <li>Join our Discord and open a ticket</li>
+    <li>Send proof of purchase and get boosted fast</li>
+  </ol>
+</section>
+
+<section id="faq" class="faq">
+  <h2>❓ Frequently Asked Questions</h2>
+  <details><summary>Do you use cheats or mods?</summary><p>Yes, we use authorized mods and tools to speed up the leveling process efficiently and safely. You do <strong>not</strong> need to share your account — you simply join our game. We never access your account directly.</p></details>
+  <details><summary>Which platforms do you support?</summary><p>Steam, Xbox, and PlayStation — all cross-progression supported.</p></details>
+  <details><summary>How long does it take?</summary><p>Most orders are completed in 1–2 hours after proof is received.</p></details>
+</section>
+
+<section id="socials" class="socials">
+  <h2>🔗 Connect With Us</h2>
+  <p>🎥 TikTok: <a href="https://www.tiktok.com/@autoexcorcist" target="_blank">@autoexcorcist</a></p>
+  <p>💬 Discord: <a href="https://discord.gg/9CBPym4yvQ">Join the server</a></p>
+</section>
+
+<footer>
+  <p>&copy; 2025 AutoExorcist Boosting Service — Not affiliated with Kinetic Games.</p>
+</footer>
+</body>
+</html>
