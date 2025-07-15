@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>AutoExorcist Boosting Service</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Creepster&display=swap" rel="stylesheet">
+</head>
+<body>
+<div class="fog"></div>
+<div class="ghost ghost-left"></div>
+<div class="ghost ghost-right"></div>
+
+<nav>
+  <ul>
+    <li><a href="#bundles" id="nav-bundles">Bundles</a></li>
+    <li><a href="#proof" id="nav-proof">Proof</a></li>
+    <li><a href="#faq" id="nav-faq">FAQ</a></li>
+    <li><a href="#how">How to Buy</a></li>
+    <li><a href="#socials">Socials</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <h1>AutoExorcist Boosting Service</h1>
+  <p>Unlock more. Grind less. Trusted by real players.</p>
+  <a href="https://discord.gg/9CBPym4yvQ" class="cta">Join Our Discord</a>
+</header>
+
+<section id="bundles" class="pricing">
+  <h2>👻 Boosting Bundles</h2>
+  <div class="card-container">
+    <div class="card bundle">50 Levels – $5.49</div>
+    <div class="card bundle">100 Levels – $9.99</div>
+    <div class="card bundle">165 Levels – $13.99</div>
+    <div class="card bundle">250 Levels – $18.99</div>
+    <div class="card bundle">350 Levels – $24.99</div>
+    <div class="card bundle">500 Levels – $29.99</div>
+    <div class="card bundle">700 Levels – $39.99</div>
+    <div class="card bundle">1000 Levels – $69.98</div>
+  </div>
+  <p class="note">💬 Avg. delivery time: 1–2 hours</p>
+</section>
+
+<section class="upsells">
+  <h2>🧩 Optional Add-Ons</h2>
+  <div class="card-container">
+    <div class="card">🔮 Card Focus (+$3)</div>
+    <div class="card">⚙️ Custom Orders (+$6.99 per extra 100 levels)</div>
+  </div>
+</section>
+
+<section id="proof" class="proof">
+  <h2>📸 Proof & Reviews</h2>
+  <p>Reviews and proof of service can be viewed publicly on <a href="https://gameflip.com/profile/us-east-1:32db29b0-e100-4906-9520-b53531f0aeaf" target="_blank">Gameflip</a> and in our <a href="https://discord.gg/9CBPym4yvQ" target="_blank">Discord server</a>.</p>
+</section>
+
+<section id="how" class="how-to-buy">
+  <h2>🛒 How to Buy</h2>
+  <ol>
+    <li>Choose where to buy:</li>
+    <ul>
+      <li><a class="buy" href="https://gameflip.com/profile/us-east-1:32db29b0-e100-4906-9520-b53531f0aeaf" target="_blank">Buy on Gameflip</a></li>
+      <li><a class="buy" href="https://www.paypal.me/AutoExorcist?locale.x=en_GB" target="_blank">Pay with PayPal</a></li>
+    </ul>
+    <li>Join our Discord and open a ticket</li>
+    <li>Send proof of purchase and get boosted fast</li>
+  </ol>
+</section>
+
+<section id="faq" class="faq">
+  <h2>❓ Frequently Asked Questions</h2>
+  <details><summary>Do you use cheats or mods?</summary><p>Yes, we use authorized mods and tools to speed up the leveling process efficiently and safely. You do <strong>not</strong> need to share your account — you simply join our game. We never access your account directly.</p></details>
+  <details><summary>Which platforms do you support?</summary><p>Steam, Xbox, and PlayStation — all cross-progression supported.</p></details>
+  <details><summary>How long does it take?</summary><p>Most orders are completed in 1–2 hours after proof is received.</p></details>
+</section>
+
+<section id="socials" class="socials">
+  <h2>🔗 Connect With Us</h2>
+  <p>🎥 TikTok: <a href="https://www.tiktok.com/@autoexcorcist" target="_blank">@autoexcorcist</a></p>
+  <p>💬 Discord: <a href="https://discord.gg/9CBPym4yvQ">Join the server</a></p>
+</section>
+
+<div class="easter-egg" id="easter-egg-msg">🧟 SpecterCode unlocked… DM it on Discord for something special.</div>
+
+<footer>
+  <p>&copy; 2025 AutoExorcist Boosting Service — Not affiliated with Kinetic Games.</p>
+</footer>
+
+<script>
+  document.querySelectorAll('.bundle').forEach(el => {
+    el.addEventListener('click', () => {
+      document.querySelector('#how').scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  let sequence = [];
+  const checkEasterEgg = () => {
+    const correct = ['nav-bundles', 'nav-proof', 'nav-faq'];
+    if (sequence.join(',') === correct.join(',')) {
+      document.getElementById('easter-egg-msg').classList.add('show');
+    }
+  };
+
+  ['nav-bundles', 'nav-proof', 'nav-faq'].forEach(id => {
+    document.getElementById(id).addEventListener('click', () => {
+      sequence.push(id);
+      if (sequence.length > 3) sequence.shift();
+      checkEasterEgg();
+    });
+  });
+</script>
+</body>
+</html>
